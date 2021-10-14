@@ -48,10 +48,10 @@
       margin-bottom: 1rem;
       padding: 1rem;
     }
-    .topic-panel {
+    .panel-topic {
       position: relative;
     }
-    .topic-panel:before {
+    .panel-topic:before {
       color: hsl(50 20% 57%);
       counter-increment: topic;
       content: '№ ' counter(topic);
@@ -61,7 +61,7 @@
       top: 0.5rem;
       transform: rotate(-15deg);
     }
-    .panel > div {
+    .panel-topic > div {
       border-radius: 1rem;
       padding: 1rem;
     }
@@ -93,23 +93,24 @@
     .full-width {
       width: 100%;
     }
-    .content-wrap {
-      max-width: 80ch;
-    }
     .content-wrap p,
     .detail-wrap p {
       line-height: 1.5;
+      max-width: 80ch;
     }
 
     @media screen and (min-width: 1000px) {
-      .panel {
+      .panel-topic {
         flex-direction: row;
+      }
+      .content-wrap {
+        display: flex;
+        gap: 5%;
       }
       .detail-wrap {
         flex: 0 0 min-content;
       }
       .demo-wrap {
-        /* flex: 1 0 15rem; */
         width: 100%;
       }
       .scroll-snap {
@@ -172,20 +173,21 @@
   </header>
 
   <main class="main scroll-snap">
-    <section class="panel" id="presentation">
+    <section class="panel" id="introduction">
+      <h2>Introduction</h2>
+
       <div class="content-wrap">
-        <h2>Introduction</h2>
-
-        <p>This is a small collection of nifty CSS capabilies worth considering in 2021.</p>
-        <p>What you'll find here are some of the smaller, showier CSS features that are concise (easy to demo), impactful (especially visually), and well-supported (90%+ share of user browsers). We skipped over a whole assortment of layout features such as flexbox and grid (huge topics that deserve more in-depth treatment), performance features such as content-visibility (lacks visual impact for quick demos), or the still not so well-supported features such as aspect-ratio (currently on 73% of user browsers).</p>
-
-        <div class="toc bigger">
+        <div class="content">
+          <p>This is a small collection of nifty CSS capabilies worth considering in 2021.</p>
+          <p>What you'll find here are some of the smaller, showier CSS features that are concise (easy to demo), impactful (especially visually), and well-supported (90%+ share of user browsers). We skipped over a whole assortment of layout features such as flexbox and grid (huge topics that deserve more in-depth treatment), performance features such as content-visibility (lacks visual impact for quick demos), or the still not so well-supported features such as aspect-ratio (currently on 73% of user browsers).</p>
+        </div>
+        <div class="content toc">
           <h3>Table of contents</h3>
         </div>
       </div>
     </section>
 
-    <section class="panel topic-panel" id="supports">
+    <section class="panel panel-topic" id="supports">
       <div class="detail-wrap">
         <h2>@supports (feature query)</h2>
         <p class="definition">The @supports CSS at-rule lets you specify declarations that depend on a browser's support for one or more specific CSS features. This is called a feature query. The rule may be placed at the top level of your code or nested inside any other conditional group at-rule. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports">MDN</a>)</p>
@@ -240,7 +242,7 @@
       </div>
     </section>
 
-    <section class="panel topic-panel" id="variables">
+    <section class="panel panel-topic" id="variables">
       <div class="detail-wrap">
         <h2>custom properties (variables)</h2>
         <p class="definition">Property names that are prefixed with -- (double-hyphens) represent custom properties that contain a value that can be used in other declarations using the var() function. Custom properties are scoped to the element(s) they are declared on, and participate in the cascade: the value of such a custom property is that from the declaration decided by the cascading algorithm. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">MDN</a>)</p>
@@ -327,7 +329,7 @@
       </div>
     </section>
 
-    <section class="panel topic-panel" id="calc">
+    <section class="panel panel-topic" id="calc">
       <div class="detail-wrap">
         <h2>calc()</h2>
         <p class="definition">The calc() CSS function lets you perform calculations when specifying CSS property values. It can be used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt; is allowed. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc()">MDN</a>)</p>
@@ -398,7 +400,7 @@
       </div>
     </section>
 
-    <section class="panel topic-panel" id="clamp">
+    <section class="panel panel-topic" id="clamp">
       <div class="detail-wrap">
         <h2>clamp()</h2>
         <p class="definition">The clamp() CSS function clamps a value between an upper and lower bound. clamp() enables selecting a middle value within a range of values between a defined minimum and maximum. It takes three parameters: a minimum value, a preferred value, and a maximum allowed value. It can be used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt; is allowed. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp()">MDN</a>)</p>
@@ -468,7 +470,7 @@
       </div>
     </section>
 
-    <section class="panel topic-panel" id="focus-within">
+    <section class="panel panel-topic" id="focus-within">
       <div class="detail-wrap">
         <h2>:focus-within</h2>
         <p class="definition">The :focus-within CSS pseudo-class matches an element if the element or any of its descendants are focused. In other words, it represents an element that is itself matched by the :focus pseudo-class or has a descendant that is matched by :focus. (This includes descendants in shadow trees.) (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within">MDN</a>)</p>
@@ -565,7 +567,7 @@
       </div>
     </section>
 
-    <section class="panel topic-panel" id="conic-gradient">
+    <section class="panel panel-topic" id="conic-gradient">
       <div class="detail-wrap">
         <h2>conic-gradient()</h2>
         <p class="definition">The conic-gradient() CSS function creates an image consisting of a gradient with color transitions rotated around a center point (rather than radiating from the center). Example conic gradients include pie charts and color wheels. The result of the conic-gradient() function is an object of the &lt;gradient> data type, which is a special kind of &lt;image>.</p>
@@ -711,7 +713,7 @@
       </div>
     </section>
 
-    <section class="panel topic-panel" id="ch">
+    <section class="panel panel-topic" id="ch">
       <div class="detail-wrap">
         <h2>ch (unit)</h2>
         <p class="definition">The advance measure (width) of the glyph "0" of the element's font. (via <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#relative_length_units">MDN</a>)</p>
@@ -807,7 +809,7 @@
       </div>
     </section>
 
-    <section class="panel topic-panel" id="marker">
+    <section class="panel panel-topic" id="marker">
       <div class="detail-wrap">
         <h2>::marker</h2>
         <p class="definition">The ::marker CSS pseudo-element selects the marker box of a list item, which typically contains a bullet or number. It works on any element or pseudo-element set to display: list-item, such as the &lt;li> and &lt;summary> elements. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::marker">MDN</a>)</p>
@@ -894,7 +896,7 @@ li.thumbs-down::marker {
       </div>
     </section>
 
-    <section class="panel topic-panel" id="scroll-snap">
+    <section class="panel panel-topic" id="scroll-snap">
       <div class="detail-wrap">
         <h2>scroll-snap</h2>
         <p class="definition">The CSS Scroll Snap specification gives us a way to snap scrolling to certain points as the user scrolls through a document. This can be helpful in creating a more app-like experience on mobile or even on the desktop for some types of applications. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap/Basic_concepts">MDN</a>)</p>
@@ -984,7 +986,7 @@ li.thumbs-down::marker {
       </div>
    </section>
 
-    <section class="panel topic-panel" id="prefers-color-scheme">
+    <section class="panel panel-topic" id="prefers-color-scheme">
       <div class="detail-wrap">
         <h2>prefers-color-scheme (media query)</h2>
         <p class="definition">The prefers-color-scheme CSS media feature is used to detect if the user has requested a light or dark color theme. The user might indicate this preference through an operating system setting (e.g. light or dark mode) or a user agent setting. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">MDN</a>)</p>
@@ -1072,7 +1074,7 @@ li.thumbs-down::marker {
       </div>
     </section>
 
-    <section class="panel topic-panel" id="clip-path">
+    <section class="panel panel-topic" id="clip-path">
       <div class="detail-wrap">
         <h2>clip-path</h2>
         <p class="definition">The clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path">MDN</a>)</p>
@@ -1141,34 +1143,46 @@ li.thumbs-down::marker {
       </div>
     </section>
 
-    <section class="panel" id="conclusion">
+    <section class="panel" id="resouces">
+      <h2>Resources</h2>
+
       <div class="content-wrap">
-        <h2>Conclusion</h2>
-
-        <h3>Read more about what's been happening in 2021</h3>
-
-        <ul>
-          <li><a href="https://www.smashingmagazine.com/2021/02/things-you-can-do-with-css-today/">Things You Can Do With CSS Today</a></li>
-          <li><a href="https://blog.logrocket.com/the-latest-features-of-css-in-2021/">The Latest Features of CSS in 2021</a></li>
-          <li><a href="https://blog.logrocket.com/5-new-css-features-you-can-already-test/">5 New CSS Features You Can Already Test</a></li>
-          <li><a href="https://designshack.net/articles/css/new-css-techniques/">5 New CSS Techniques to Master in 2021</a></li>
-          <li><a href="https://www.proglobalbusinesssolutions.com/css-hover-effects/">Top 36 CSS Hover Effects That You Can Use in 2021</a></li>
-        </ul>
-
-        <h3>Stay informed</h3>
-        <ul>
-          <li><a href="https://css-weekly.com/archives/">CSS Weekly - Archives</a></li>
-          <li><a href="https://css-tricks.com/">CSS-Tricks</a></li>
-          <li><a href="https://www.smashingmagazine.com/category/css/">SmashingMagazine CSS</a></li>
-          <li><a href="https://moderncss.dev/">Modern CSS</a></li>
-          <li><a href="https://smolcss.dev/">SmolCSS</a></li>
-          <li><a href="https://thinkdobecreate.com/">Stephanie Eckles</a></li>
-          <li><a href="https://ishadeed.com/articles/">Ahmad Shadeed Articles</a></li>
-          <li><a href="https://www.joshwcomeau.com/tutorials/">Josh W Comeau CSS Tutorials</a></li>
-        </ul>
-
-        <p style="font-size:0.75rem;margin-top:3rem">&copy;2021 Steve Stedman</p>
+        <div class="content">
+          <h3>Read more about what's been happening in 2021</h3>
+          <ul>
+            <li><a href="https://www.smashingmagazine.com/2021/02/things-you-can-do-with-css-today/">Things You Can Do With CSS Today</a></li>
+            <li><a href="https://blog.logrocket.com/the-latest-features-of-css-in-2021/">The Latest Features of CSS in 2021</a></li>
+            <li><a href="https://blog.logrocket.com/5-new-css-features-you-can-already-test/">5 New CSS Features You Can Already Test</a></li>
+            <li><a href="https://designshack.net/articles/css/new-css-techniques/">5 New CSS Techniques to Master in 2021</a></li>
+            <li><a href="https://www.proglobalbusinesssolutions.com/css-hover-effects/">Top 36 CSS Hover Effects That You Can Use in 2021</a></li>
+          </ul>
+        </div>
+        <div class="content">
+          <h3>Stay informed</h3>
+          <ul>
+            <li><a href="https://css-weekly.com/archives/">CSS Weekly - Archives</a></li>
+            <li><a href="https://css-tricks.com/">CSS-Tricks</a></li>
+            <li><a href="https://www.smashingmagazine.com/category/css/">SmashingMagazine CSS</a></li>
+            <li><a href="https://moderncss.dev/">Modern CSS</a></li>
+            <li><a href="https://smolcss.dev/">SmolCSS</a></li>
+            <li><a href="https://thinkdobecreate.com/">Stephanie Eckles</a></li>
+            <li><a href="https://ishadeed.com/articles/">Ahmad Shadeed Articles</a></li>
+            <li><a href="https://www.joshwcomeau.com/tutorials/">Josh W Comeau CSS Tutorials</a></li>
+          </ul>
+        </div>
+        <div class="content">
+          <h3>Learn</h3>
+          <ul>
+            <li><a href="https://web.dev/learn/css/">Learn CSS</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Tutorials">CSS Tutorials | MDN</a></li>
+            <li><a href="https://dev.to/suprabhasupi/learn-css-by-playing-games-1a36">Learn CSS by Playing Games</a></li>
+            <li><a href="https://css-for-js.dev/">CSS for JavaScript Developers</a></li>
+            <li><a href="https://leveluptutorials.com/tutorials/modern-css-layouts/about-modern-css-layouts">Modern CSS Layouts</a></li>
+          </ul>
+        </div>
       </div>
+
+      <p style="font-size:0.75rem;margin-top:3rem">&copy;2021 Steve Stedman</p>
     </section>
 
   </main>
@@ -1176,7 +1190,7 @@ li.thumbs-down::marker {
   <script>
     (function () {
       const tocEl = document.querySelector('.toc');
-      const topicEls = document.querySelectorAll('.topic-panel');
+      const topicEls = document.querySelectorAll('.panel-topic');
 
       const content = [...topicEls].reduce((acc, el) => {
         const item = `<li><a href="#${el.id}">${el.querySelector('h2').textContent}</a>`;
