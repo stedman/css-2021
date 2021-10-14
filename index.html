@@ -23,7 +23,7 @@
     th,
     td {
       background: #fff;
-      min-width: 7ch;
+      min-width: 8ch;
       padding: 2px 4px;
       text-align: right;
     }
@@ -71,7 +71,7 @@
       gap: 2rem;
     }
     .css-sample {
-      margin-top: 2rem;
+      width: 100%;
     }
     .css-sample h3 {
       display: none;
@@ -93,13 +93,20 @@
     .full-width {
       width: 100%;
     }
+    .content-wrap {
+      max-width: 80ch;
+    }
+    .content-wrap p,
+    .detail-wrap p {
+      line-height: 1.5;
+    }
 
     @media screen and (min-width: 1000px) {
       .panel {
         flex-direction: row;
       }
       .detail-wrap {
-        flex: 0 0 40rem;
+        flex: 0 0 min-content;
       }
       .demo-wrap {
         /* flex: 1 0 15rem; */
@@ -166,10 +173,11 @@
 
   <main class="main scroll-snap">
     <section class="panel" id="presentation">
-      <div class="detail-wrap">
+      <div class="content-wrap">
         <h2>Introduction</h2>
 
-        <p>This is a quick demo site to demonstrate some of the CSS possibilities worth considering in 2021.</p>
+        <p>This is a small collection of nifty CSS capabilies worth considering in 2021.</p>
+        <p>What you'll find here are some of the smaller, showier CSS features that are concise (easy to demo), impactful (especially visually), and well-supported (90%+ share of user browsers). We skipped over a whole assortment of layout features such as flexbox and grid (huge topics that deserve more in-depth treatment), performance features such as content-visibility (lacks visual impact for quick demos), or the still not so well-supported features such as aspect-ratio (currently on 73% of user browsers).</p>
 
         <div class="toc bigger">
           <h3>Table of contents</h3>
@@ -178,37 +186,47 @@
     </section>
 
     <section class="panel topic-panel" id="supports">
-        <div class="detail-wrap">
-          <h2>@supports (feature queries)</h2>
-          <p class="definition">The @supports CSS at-rule lets you specify declarations that depend on a browser's support for one or more specific CSS features. This is called a feature query. The rule may be placed at the top level of your code or nested inside any other conditional group at-rule. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports">MDN</a>)</p>
+      <div class="detail-wrap">
+        <h2>@supports (feature query)</h2>
+        <p class="definition">The @supports CSS at-rule lets you specify declarations that depend on a browser's support for one or more specific CSS features. This is called a feature query. The rule may be placed at the top level of your code or nested inside any other conditional group at-rule. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports">MDN</a>)</p>
 
-          <table class="browsers">
-            <caption>browser support</caption>
-            <thead>
-              <tr>
-                <th>% all</th>
-                <th>Chrome</th>
-                <th>Edge</th>
-                <th>Firefox</th>
-                <th>Safari</th>
-                <th>Samsung</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>98%</td>
-                <td>28+</td>
-                <td>12+</td>
-                <td>22+</td>
-                <td>9+</td>
-                <td>4+</td>
-              </tr>
-            </tbody>
-          </table>
+        <table class="browsers">
+          <caption>browser support</caption>
+          <thead>
+            <tr>
+              <th>% all</th>
+              <th>Chrome</th>
+              <th>Edge</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Samsung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>98%</td>
+              <td>28+</td>
+              <td>12+</td>
+              <td>22+</td>
+              <td>9+</td>
+              <td>4+</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <div class="css-sample">
-            <h3>Sample CSS</h3>
-            <pre><code>@supports (display: grid) {
+        <div class="more">
+          <h3>More...</h3>
+          <ul>
+            <li><a href="https://caniuse.com/css-featurequeries">CSS Feature Queries | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports">@supports - CSS: Cascading Style Sheets | MDN</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="demo-wrap">
+        <div class="css-sample">
+          <h3>Sample CSS</h3>
+          <pre><code>@supports (display: grid) {
   .griddle {
     display: grid;
   }
@@ -218,274 +236,298 @@
     float: left;
   }
 }</code></pre>
-          </div>
-
-          <div class="more">
-            <h3>More...</h3>
-            <ul>
-              <li><a href="https://caniuse.com/css-featurequeries">CSS Feature Queries | Can I use... Support tables for HTML5, CSS3, etc</a></li>
-            </ul>
-          </div>
         </div>
-
-        <!-- <div class="demo-wrap"></div> -->
+      </div>
     </section>
 
     <section class="panel topic-panel" id="variables">
-        <div class="detail-wrap">
-          <h2>custom properties (variables)</h2>
-          <p class="definition">Property names that are prefixed with -- (double-hyphens) represent custom properties that contain a value that can be used in other declarations using the var() function. Custom properties are scoped to the element(s) they are declared on, and participate in the cascade: the value of such a custom property is that from the declaration decided by the cascading algorithm. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">MDN</a>)</p>
+      <div class="detail-wrap">
+        <h2>custom properties (variables)</h2>
+        <p class="definition">Property names that are prefixed with -- (double-hyphens) represent custom properties that contain a value that can be used in other declarations using the var() function. Custom properties are scoped to the element(s) they are declared on, and participate in the cascade: the value of such a custom property is that from the declaration decided by the cascading algorithm. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">MDN</a>)</p>
 
-          <table class="browsers">
-            <caption>browser support</caption>
-            <thead>
-              <tr>
-                <th>% all</th>
-                <th>Chrome</th>
-                <th>Edge</th>
-                <th>Firefox</th>
-                <th>Safari</th>
-                <th>Samsung</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>96%</td>
-                <td>49+</td>
-                <td>16+</td>
-                <td>31+</td>
-                <td>10+</td>
-                <td>5+</td>
-              </tr>
-            </tbody>
-          </table>
+        <table class="browsers">
+          <caption>browser support</caption>
+          <thead>
+            <tr>
+              <th>% all</th>
+              <th>Chrome</th>
+              <th>Edge</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Samsung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>96%</td>
+              <td>49+</td>
+              <td>16+</td>
+              <td>31+</td>
+              <td>10+</td>
+              <td>5+</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <div class="css-sample">
-            <h3>Sample CSS</h3>
-            <pre><code>.demo-box {
+        <div class="more">
+          <h3>More...</h3>
+          <ul>
+            <li><a href="https://caniuse.com/css-variables">CSS Variables (Custom Properties) | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">Custom properties (--*): CSS variables - CSS: Cascading Style Sheets | MDN</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/var()">var() - CSS: Cascading Style Sheets | MDN</a></li>
+            <li><a href="https://css-tricks.com/a-complete-guide-to-custom-properties/">A Complete Guide to Custom Properties | CSS-Tricks</a></li>
+            <li><a href="https://www.lambdatest.com/blog/guide-to-css-variables-with-examples/">A Complete Guide To CSS Variables [With Examples] | LambdaTest</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="demo-wrap">
+        <div class="demo-target">
+          <p>This container's background color shifts by changing the hue value (<code>--box-bg-hue</code>) dynamically.</p>
+          <p>Custom properties can be mutated with a new value in CSS or via an HTML element's style attribute as seen below:</p>
+          <pre><code>&lt;div class="demo-box" style="--box-bg-hue: <span class="var-val highlight"></span>"&gt;
+  ...
+&lt;div&gt;</code></pre>
+        </div>
+
+        <div class="demo-input">
+          <label for="range-variables"><strong>custom property</strong> value</label>
+          <input type="range" class="full-width" id="range-variables" min="0" max="360">
+          <p>Note that the "--box-bg-hue" value on the <code>.demo-box</code> div changes.</p>
+        </div>
+
+        <div class="css-sample">
+          <h3>Sample CSS</h3>
+          <pre><code>.demo-box {
   <span class="dim">/* set the default variable */</span>
   --box-bg-hue: 0;
   <span class="dim">/* use the variable */</span>
   background: hsl(var(--box-bg-hue) 70% 30%);
   color: #eee;
 }</code></pre>
-          </div>
-
-          <div class="more">
-            <h3>More...</h3>
-            <ul>
-              <li><a href="https://caniuse.com/css-variables">CSS Variables (Custom Properties) | Can I use... Support tables for HTML5, CSS3, etc</a></li>
-              <li><a href="https://css-tricks.com/a-complete-guide-to-custom-properties/">A Complete Guide to Custom Properties | CSS-Tricks</a></li>
-              <li><a href="https://www.lambdatest.com/blog/guide-to-css-variables-with-examples/">A Complete Guide To CSS Variables [With Examples] | LambdaTest</a></li>
-            </ul>
-          </div>
         </div>
 
-        <div class="demo-wrap">
-          <div class="demo-target">
-            <p>This container's background color shifts by changing the hue value (<code>--box-bg-hue</code>) dynamically.</p>
-            <p>Custom properties can be mutated with a new value in CSS or via an HTML element's style attribute as seen below:</p>
-            <pre><code>&lt;div class="demo-box" style="--box-bg-hue: <span class="var-val highlight"></span>"&gt;
-  ...
-&lt;div&gt;</code></pre>
-          </div>
-
-          <div class="demo-input">
-            <label for="range-variables"><strong>custom property</strong> value</label>
-            <input type="range" class="full-width" id="range-variables" min="0" max="360">
-            <p>Notice that the "--box-bg-hue" value on the <code>.demo-box</code> div changes.</p>
-          </div>
-
-          <style type="text/css">
-            #variables .demo-target {
-              /* set the default variable */
-              --box-bg-hue: 0;
-              /* use the variable */
-              background: hsl(var(--box-bg-hue) 70% 30%);
-              color: #eee;
-              padding: 0.5em 1em;
-            }
-            #variables .demo-target pre {
-              font-size: 0.75rem;
-              white-space: pre-wrap;
-            }
-          </style>
-          <script>
-            ranger('variables', '--box-bg-hue');
-          </script>
-        </div>
+        <style type="text/css">
+          #variables .demo-target {
+            /* set the default variable */
+            --box-bg-hue: 0;
+            /* use the variable */
+            background: hsl(var(--box-bg-hue) 70% 30%);
+            color: #eee;
+            padding: 0.5em 1em;
+          }
+          #variables .demo-target pre {
+            font-size: 0.75rem;
+            white-space: pre-wrap;
+          }
+        </style>
+        <script>
+          ranger('variables', '--box-bg-hue');
+        </script>
+      </div>
     </section>
 
     <section class="panel topic-panel" id="calc">
-        <div class="detail-wrap">
-          <h2>calc</h2>
-          <p class="definition">The calc() CSS function lets you perform calculations when specifying CSS property values. It can be used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt; is allowed. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc()">MDN</a>)</p>
+      <div class="detail-wrap">
+        <h2>calc()</h2>
+        <p class="definition">The calc() CSS function lets you perform calculations when specifying CSS property values. It can be used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt; is allowed. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc()">MDN</a>)</p>
 
-          <table class="browsers">
-            <caption>browser support</caption>
-            <thead>
-              <tr>
-                <th>% all</th>
-                <th>Chrome</th>
-                <th>Edge</th>
-                <th>Firefox</th>
-                <th>Safari</th>
-                <th>Samsung</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>96%</td>
-                <td>49+</td>
-                <td>16+</td>
-                <td>31+</td>
-                <td>10+</td>
-                <td>4+</td>
-              </tr>
-            </tbody>
-          </table>
+        <table class="browsers">
+          <caption>browser support</caption>
+          <thead>
+            <tr>
+              <th>% all</th>
+              <th>Chrome</th>
+              <th>Edge</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Samsung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>96%</td>
+              <td>49+</td>
+              <td>16+</td>
+              <td>31+</td>
+              <td>10+</td>
+              <td>4+</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <div class="css-sample">
-            <h3>Sample CSS</h3>
-            <pre><code>.calc {
+        <div class="more">
+          <h3>More...</h3>
+          <ul>
+            <li><a href="https://caniuse.com/calc">calc() as CSS unit value | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc()">calc() - CSS: Cascading Style Sheets | MDN</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="demo-wrap">
+        <div class="demo-target"></div>
+
+        <div class="demo-input">
+          <label for="range-calc"><strong>calc()</strong> multiplier</label>
+          <input type="range" class="full-width" id="range-calc" min="1" max="30">
+          <p>Note that the calc() multiplier changes in the CSS Sample which affects the width of the box.</p>
+        </div>
+
+        <div class="css-sample">
+          <h3>Sample CSS</h3>
+          <pre><code>.calc {
   background: #c27;
   height: 5rem;
   width: calc(<span class="var-val highlight"></span> * 2%);
 }</code></pre>
-          </div>
-
-          <div class="more">
-            <h3>More...</h3>
-            <ul>
-              <li><a href="https://caniuse.com/calc">calc() as CSS unit value | Can I use... Support tables for HTML5, CSS3, etc</a></li>
-            </ul>
-          </div>
         </div>
 
-        <div class="demo-wrap">
-          <div class="demo-target"></div>
-
-          <div class="demo-input">
-            <label for="range-calc"><strong>calc()</strong> multiplier</label>
-            <input type="range" class="full-width" id="range-calc" min="1" max="30">
-            <p>Notice that the calc() multiplier changes in the CSS Sample which affects the width of the box.</p>
-          </div>
-
-          <style type="text/css">
-            #calc .demo-target {
-              --input: 1;
-              --side-length: calc(var(--input) * 2%);
-              background: #c27;
-              height: 5rem;
-              width: var(--side-length);
-            }
-          </style>
-          <script>
-            ranger('calc', '--input');
-          </script>
-        </div>
+        <style type="text/css">
+          #calc .demo-target {
+            --input: 1;
+            --side-length: calc(var(--input) * 2%);
+            background: #c27;
+            height: 5rem;
+            width: var(--side-length);
+          }
+        </style>
+        <script>
+          ranger('calc', '--input');
+        </script>
+      </div>
     </section>
 
     <section class="panel topic-panel" id="clamp">
-        <div class="detail-wrap">
-          <h2>clamp()</h2>
-          <p class="definition">The clamp() CSS function clamps a value between an upper and lower bound. clamp() enables selecting a middle value within a range of values between a defined minimum and maximum. It takes three parameters: a minimum value, a preferred value, and a maximum allowed value. It can be used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt; is allowed. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp()">MDN</a>)</p>
+      <div class="detail-wrap">
+        <h2>clamp()</h2>
+        <p class="definition">The clamp() CSS function clamps a value between an upper and lower bound. clamp() enables selecting a middle value within a range of values between a defined minimum and maximum. It takes three parameters: a minimum value, a preferred value, and a maximum allowed value. It can be used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt; is allowed. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp()">MDN</a>)</p>
 
-          <table class="browsers">
-            <caption>browser support</caption>
-            <thead>
-              <tr>
-                <th>% all</th>
-                <th>Chrome</th>
-                <th>Edge</th>
-                <th>Firefox</th>
-                <th>Safari</th>
-                <th>Samsung</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>91%</td>
-                <td>79+</td>
-                <td>79+</td>
-                <td>75+</td>
-                <td>13.4+</td>
-                <td>12+</td>
-              </tr>
-            </tbody>
-          </table>
+        <table class="browsers">
+          <caption>browser support</caption>
+          <thead>
+            <tr>
+              <th>% all</th>
+              <th>Chrome</th>
+              <th>Edge</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Samsung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>91%</td>
+              <td>79+</td>
+              <td>79+</td>
+              <td>75+</td>
+              <td>13.4+</td>
+              <td>12+</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <div class="css-sample">
-            <h3>Sample CSS</h3>
-            <pre><code>.clamp {
+        <div class="more">
+          <h3>More...</h3>
+          <ul>
+            <li><a href="https://caniuse.com/css-math-functions">CSS math functions min(), max() and clamp() | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp()">clamp() - CSS: Cascading Style Sheets | MDN</a></li>
+            <li><a href="https://web.dev/min-max-clamp/">min(), max(), and clamp(): three logical CSS functions to use today</a></li>
+            <li><a href="https://blog.logrocket.com/understanding-min-content-max-content-fit-content-css/">Understanding min-content, max-content, and fit-content in CSS - LogRocket Blog</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="demo-wrap">
+        <div class="demo-target">
+          ABC
+        </div>
+
+        <div class="demo-input">
+          <label for="range-clamp"><strong>clamp()</strong> value</label>
+          <input type="range" class="full-width" id="range-clamp" min="0" max="100">
+          <p>Note that the <code>clamp()</code> value changes in the CSS Sample. Also note that the text stops shrinking at 2rem and growing at 10rem.</p>
+        </div>
+
+        <div class="css-sample">
+          <h3>Sample CSS</h3>
+          <pre><code>.clamp {
   font-size: clamp(2rem, <span class="var-val highlight"></span>%, 10rem);
 }</code></pre>
-          </div>
-
-          <div class="more">
-            <h3>More...</h3>
-            <ul>
-              <li><a href="https://caniuse.com/css-math-functions">CSS math functions min(), max() and clamp() | Can I use... Support tables for HTML5, CSS3, etc</a></li>
-              <li><a href="https://web.dev/min-max-clamp/">min(), max(), and clamp(): three logical CSS functions to use today</a></li>
-            </ul>
-          </div>
         </div>
 
-        <div class="demo-wrap">
-          <div class="demo-target">
-            ABC
-          </div>
-
-          <div class="demo-input">
-            <label for="range-clamp"><strong>clamp()</strong> value</label>
-            <input type="range" class="full-width" id="range-clamp" min="0" max="100">
-            <p>Notice that the <code>clamp()</code> value changes in the CSS Sample. Also note that the text stops shrinking at 2rem and growing at 10rem.</p>
-          </div>
-
-          <style type="text/css">
-            #clamp .demo-target {
-              --input: 1;
-              font-size: clamp(2em, calc(var(--input) * 12%), 10rem);
-            }
-          </style>
-          <script>
-            ranger('clamp', '--input')
-          </script>
-        </div>
+        <style type="text/css">
+          #clamp .demo-target {
+            --input: 1;
+            font-size: clamp(2em, calc(var(--input) * 12%), 10rem);
+          }
+        </style>
+        <script>
+          ranger('clamp', '--input')
+        </script>
+      </div>
     </section>
 
     <section class="panel topic-panel" id="focus-within">
-        <div class="detail-wrap">
-          <h2>:focus-within</h2>
-          <p class="definition">The :focus-within CSS pseudo-class matches an element if the element or any of its descendants are focused. In other words, it represents an element that is itself matched by the :focus pseudo-class or has a descendant that is matched by :focus. (This includes descendants in shadow trees.) (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within">MDN</a>)</p>
+      <div class="detail-wrap">
+        <h2>:focus-within</h2>
+        <p class="definition">The :focus-within CSS pseudo-class matches an element if the element or any of its descendants are focused. In other words, it represents an element that is itself matched by the :focus pseudo-class or has a descendant that is matched by :focus. (This includes descendants in shadow trees.) (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within">MDN</a>)</p>
 
-          <table class="browsers">
-            <caption>browser support</caption>
-            <thead>
-              <tr>
-                <th>% all</th>
-                <th>Chrome</th>
-                <th>Edge</th>
-                <th>Firefox</th>
-                <th>Safari</th>
-                <th>Samsung</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>94%</td>
-                <td>60+</td>
-                <td>79+</td>
-                <td>52+</td>
-                <td>10.3+</td>
-                <td>8.2+</td>
-              </tr>
-            </tbody>
-          </table>
+        <table class="browsers">
+          <caption>browser support</caption>
+          <thead>
+            <tr>
+              <th>% all</th>
+              <th>Chrome</th>
+              <th>Edge</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Samsung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>94%</td>
+              <td>60+</td>
+              <td>79+</td>
+              <td>52+</td>
+              <td>10.3+</td>
+              <td>8.2+</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <div class="css-sample">
-            <h3>Sample CSS</h3>
-            <pre><code>.set-1:focus-within {
+        <div class="more">
+          <h3>More...</h3>
+          <ul>
+            <li><a href="https://caniuse.com/css-focus-within">:focus-within CSS pseudo-class | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within">:focus-within - CSS: Cascading Style Sheets | MDN</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="demo-wrap">
+        <fieldset class="set-1">
+          <legend>Silly stuff</legend>
+          <label>
+            Input box <input>
+          </label>
+          <div class="who hidden-focus">👻 who goes there?</div>
+        </fieldset>
+
+        <fieldset class="set-2 fs">
+          <legend>Important stuff</legend>
+          <label>
+            Checkbox <input type="checkbox">
+          </label>
+          <div class="warning hidden-focus">⚠️ check your work</div>
+        </fieldset>
+
+        <p>Note that applying focus (clicking) the inputs affects the styling of the parent and siblings.</p>
+
+        <div class="css-sample">
+          <h3>Sample CSS</h3>
+          <pre><code>.set-1:focus-within {
   background: lime;
 }
 .who {
@@ -494,65 +536,39 @@
 .set-1:focus-within .who {
   opacity: 1;
 }</code></pre>
-          </div>
-
-          <div class="more">
-            <h3>More...</h3>
-            <ul>
-              <li><a href="https://caniuse.com/css-focus-within">:focus-within CSS pseudo-class | Can I use... Support tables for HTML5, CSS3, etc</a></li>
-              </ul>
-          </div>
         </div>
 
-        <div class="demo-wrap">
-          <fieldset class="set-1">
-            <legend>Silly stuff</legend>
-            <label>
-              Input box <input>
-            </label>
-            <div class="who hidden-focus">👻 who goes there?</div>
-          </fieldset>
-
-          <fieldset class="set-2 fs">
-            <legend>Important stuff</legend>
-            <label>
-              Checkbox <input type="checkbox">
-            </label>
-            <div class="warning hidden-focus">⚠️ check your work</div>
-          </fieldset>
-
-          <p>Notice that applying focus (clicking) the inputs affects the styling of the parent and siblings.</p>
-
-          <style type="text/css">
-            .set-1,
-            .set-2 {
-              height: min-content;
-            }
-            .set-1:focus-within {
-              background: var(--color-1);
-            }
-            .set-2:focus-within {
-              background: yellow;
-            }
-            .hidden-focus {
-              color: #333;
-              font: italic 2rem Georgia, serif;
-              margin-top: 2rem;
-              opacity: 0;
-              text-align: center;
-              transition: opacity 1s;
-            }
-            .set-1:focus-within .who,
-            .set-2:focus-within .warning {
-              opacity: 1;
-            }
-          </style>
-        </div>
+        <style type="text/css">
+          .set-1,
+          .set-2 {
+            height: min-content;
+          }
+          .set-1:focus-within {
+            background: var(--color-1);
+          }
+          .set-2:focus-within {
+            background: yellow;
+          }
+          .hidden-focus {
+            color: #333;
+            font: italic 2rem Georgia, serif;
+            margin-top: 2rem;
+            opacity: 0;
+            text-align: center;
+            transition: opacity 1s;
+          }
+          .set-1:focus-within .who,
+          .set-2:focus-within .warning {
+            opacity: 1;
+          }
+        </style>
+      </div>
     </section>
 
     <section class="panel topic-panel" id="conic-gradient">
       <div class="detail-wrap">
-        <h2>conic gradients</h2>
+        <h2>conic-gradient()</h2>
+        <p class="definition">The conic-gradient() CSS function creates an image consisting of a gradient with color transitions rotated around a center point (rather than radiating from the center). Example conic gradients include pie charts and color wheels. The result of the conic-gradient() function is an object of the &lt;gradient> data type, which is a special kind of &lt;image>.</p>
 
         <table class="browsers">
           <caption>browser support</caption>
@@ -578,6 +594,29 @@
           </tbody>
         </table>
 
+        <div class="more">
+          <h3>More...</h3>
+          <ul>
+            <li><a href="https://caniuse.com/css-conic-gradients">CSS Conical Gradients | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient()">conic-gradient() - CSS: Cascading Style Sheets | MDN</a></li>
+<li><a href="https://css-tricks.com/using-conic-gradients-css-variables-create-doughnut-chart-output-range-input/">Using Conic Gradients and CSS Variables to Create a Doughnut Chart Output for a Range Input | CSS-Tricks</a></li>
+<li><a href="https://www.sitepoint.com/create-css-conic-gradients-pie-charts/">SitePoint</a></li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="demo-wrap">
+        <div class="donut-wrap">
+          <p>Total amount: <strong class="total-amt"></strong>. Amount you paid: <strong class="paid-amt"></strong>.</p>
+          <output class="donut" for="donut-range"></output>
+        </div>
+
+        <div class="demo-input">
+          <label for="range-clamp"><strong>conic-gradient</strong> percent value</label>
+          <input type="range" class="full-width" id="range-donut" min="0" max="100">
+          <p>Note that the <code>conic-gradient()</code> percent value changes in the CSS Sample as the size of the donut changes.</p>
+        </div>
+
         <div class="css-sample">
           <h3>Sample CSS</h3>
           <pre><code>.donut {
@@ -586,27 +625,6 @@
   width: 10rem;
 }
 </code></pre>
-        </div>
-
-        <div class="more">
-          <h3>More...</h3>
-          <ul>
-            <li><a href="https://caniuse.com/css-conic-gradients">CSS Conical Gradients | Can I use... Support tables for HTML5, CSS3, etc</a></li>
-            </ul>
-        </div>
-      </div>
-
-      <div class="demo-wrap">
-        <div class="donut-wrap">
-          <p>Total amount: <span class="total-amt"></span>.</p>
-          <p>Amount you paid: <span class="paid-amt"></span>.</p>
-          <output class="donut" for="donut-range"></output>
-        </div>
-
-        <div class="demo-input">
-          <label for="range-clamp"><strong>conic-gradient</strong> percent value</label>
-          <input type="range" class="full-width" id="range-donut" min="0" max="100">
-          <p>Notice that the <code>conic-gradient()</code> percent value changes in the CSS Sample as the size of the donut changes.</p>
         </div>
 
         <style type="text/css">
@@ -722,25 +740,14 @@
           </tbody>
         </table>
 
-        <div class="css-sample">
-          <h3>Sample CSS</h3>
-          <pre><code>input.ch {
-  width: <span class="ch-val highlight"></span>ch;
-}</code></pre>
-        </div>
-
         <div class="more">
           <h3>More...</h3>
           <ul>
             <li><a href="https://caniuse.com/ch-unit">ch (character) unit | Can I use... Support tables for HTML5, CSS3, etc</a></li>
             <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units">CSS values and units - Learn web development | MDN</a></li>
-            <li>EXAMPLES:
-              <ul>
-                <li>2FA form inputs that need 6 digits: <code>width: 6ch;</code>  (add padding if needed)</li>
-                <li>Line length recommendations for maximal readability (<a href="https://baymard.com/blog/line-length-readability">50-75</a>, <a href="https://www.viget.com/articles/the-line-length-misconception/">more</a>): <code>max-width: 75ch;</code> (also see "clamp", below)</li>
-                </ul>
-              </li>
-            </ul>
+            <li><a href="https://meyerweb.com/eric/thoughts/2018/06/28/what-is-the-css-ch-unit/">What is the CSS ch unit?</a></li>
+            <li><a href="https://piccalil.li/quick-tip/line-length/">Limit line lengths to increas readability</a></li>
+          </ul>
         </div>
       </div>
 
@@ -765,7 +772,14 @@
         <div class="demo-input">
           <label for="range-ch">unit value</label>
           <input type="range" class="full-width" id="range-ch" min="1" max="6">
-          <p>Notice that when the unit value changes, the <strong>ch</strong> input grows differently than the <strong>em</strong> input.</p>
+          <p>Note that when the unit value changes, the <strong>ch</strong> input grows differently than the <strong>em</strong> input.</p>
+        </div>
+
+        <div class="css-sample">
+          <h3>Sample CSS</h3>
+          <pre><code>input.ch {
+  width: <span class="ch-val highlight"></span>ch;
+}</code></pre>
         </div>
 
         <style type="text/css">
@@ -794,37 +808,59 @@
     </section>
 
     <section class="panel topic-panel" id="marker">
-        <div class="detail-wrap">
-          <h2>::marker</h2>
-          <p class="definition">The ::marker CSS pseudo-element selects the marker box of a list item, which typically contains a bullet or number. It works on any element or pseudo-element set to display: list-item, such as the &lt;li> and &lt;summary> elements. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::marker">MDN</a>)</p>
+      <div class="detail-wrap">
+        <h2>::marker</h2>
+        <p class="definition">The ::marker CSS pseudo-element selects the marker box of a list item, which typically contains a bullet or number. It works on any element or pseudo-element set to display: list-item, such as the &lt;li> and &lt;summary> elements. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::marker">MDN</a>)</p>
 
-          <table class="browsers">
-            <caption>browser support</caption>
-            <thead>
-              <tr>
-                <th>% all</th>
-                <th>Chrome</th>
-                <th>Edge</th>
-                <th>Firefox</th>
-                <th>Safari</th>
-                <th>Samsung</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>91%</td>
-                <td>86+</td>
-                <td>86+</td>
-                <td>68+</td>
-                <td>11.3+</td>
-                <td>14+</td>
-              </tr>
-            </tbody>
-          </table>
+        <table class="browsers">
+          <caption>browser support</caption>
+          <thead>
+            <tr>
+              <th>% all</th>
+              <th>Chrome</th>
+              <th>Edge</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Samsung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>91%</td>
+              <td>86+</td>
+              <td>86+</td>
+              <td>68+</td>
+              <td>11.3+</td>
+              <td>14+</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <div class="css-sample">
-            <h3>Sample CSS</h3>
-            <pre><code>li::marker {
+        <div class="more">
+          <h3>More...</h3>
+          <ul>
+            <li><a href="https://caniuse.com/css-marker-pseudo">CSS ::marker pseudo-element | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::marker">::marker - CSS: Cascading Style Sheets | MDN</a></li>
+            <li>[::marker | CSS-Tricks](<a href="https://css-tricks.com/almanac/selectors/m/marker/">::marker | CSS-Tricks</a>)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="demo-wrap">
+        <ul>
+          <li class="">boring item</li>
+          <li class="">boring item</li>
+          <li class="thumbs-up">thumbs-up item</li>
+          <li class="clown">clown item</li>
+          <li class="">boring item</li>
+          <li class="thumbs-down">thumbs-down item</li>
+        </ul>
+
+        <p>Note that we can apply different images and other styling to list markers.</p>
+
+        <div class="css-sample">
+          <h3>Sample CSS</h3>
+          <pre><code>li::marker {
   color: var(--color-2);
 }
 li.clown::marker {
@@ -836,49 +872,26 @@ li.thumbs-up::marker {
 li.thumbs-down::marker {
   content: '👎';
 }</code></pre>
-          </div>
-
-          <div class="more">
-            <h3>More...</h3>
-            <ul>
-              <li><a href="https://caniuse.com/css-marker-pseudo">CSS ::marker pseudo-element | Can I use... Support tables for HTML5, CSS3, etc</a></li>
-<li><a href="https://css-tricks.com/almanac/selectors/m/marker/">::marker | CSS-Tricks</a></li>
-            </ul>
-          </div>
         </div>
 
-        <div class="demo-wrap">
-          <ul>
-            <li class="">boring item</li>
-            <li class="">boring item</li>
-            <li class="thumbs-up">thumbs-up item</li>
-            <li class="clown">clown item</li>
-            <li class="">boring item</li>
-            <li class="thumbs-down">thumbs-down item</li>
-          </ul>
-
-          <p>Notice that we can apply different images and other styling to list markers.</p>
-
-          <style type="text/css">
-            #marker .li {
-              padding-left: 1ch;
-            }
-            #marker li::marker {
-              color: var(--color-2);
-            }
-            li.clown::marker {
-              content: '🤡';
-            }
-            li.thumbs-up::marker {
-              content: '👍';
-            }
-            li.thumbs-down::marker {
-              content: '👎';
-            }
-          </style>
-          <script>
-          </script>
-        </div>
+        <style type="text/css">
+          #marker .li {
+            padding-left: 1ch;
+          }
+          #marker li::marker {
+            color: var(--color-2);
+          }
+          li.clown::marker {
+            content: '🤡';
+          }
+          li.thumbs-up::marker {
+            content: '👍';
+          }
+          li.thumbs-down::marker {
+            content: '👎';
+          }
+        </style>
+      </div>
     </section>
 
     <section class="panel topic-panel" id="scroll-snap">
@@ -910,27 +923,15 @@ li.thumbs-down::marker {
           </tbody>
         </table>
 
-        <div class="css-sample">
-          <h3>Sample CSS</h3>
-          <pre><code>.demo-panel-wrap {
-  height: 30rem;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-}
-.demo-panel {
-  height: 30rem;
-  scroll-snap-align: start;
-}</code></pre>
-        </div>
-
         <div class="more">
           <h3>More...</h3>
           <ul>
             <li><a href="https://caniuse.com/?search=scroll-snap">&quot;scroll-snap&quot; | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap/Basic_concepts">Basic concepts of CSS Scroll Snap</a></li>
+            <li><a href="https://web.dev/css-scroll-snap/">Well-controlled scrolling with CSS Scroll Snap</a></li>
           </ul>
         </div>
-    </div>
+      </div>
 
       <div class="demo-wrap">
         <div class="demo-panel-wrap">
@@ -940,11 +941,25 @@ li.thumbs-down::marker {
           <div class="demo-panel" style="background: hsl(120 40% 40%)"></div>
         </div>
 
-        <p>Notice that vertical scrolling the section above snaps at each color.</p>
+        <p>Note that vertical scrolling the section above snaps at each color.</p>
+
+        <div class="css-sample">
+          <h3>Sample CSS</h3>
+          <pre><code>.demo-panel-wrap {
+  height: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+.demo-panel {
+  height: 100%;
+  scroll-snap-align: start;
+}</code></pre>
+        </div>
 
         <style type="text/css">
           .demo-panel-wrap {
-            --panel-height: 30rem;
+            --panel-height: 100%;
             counter-reset: panel;
             height: var(--panel-height);
             overflow-y: scroll;
@@ -966,44 +981,56 @@ li.thumbs-down::marker {
             font-size: 4em;
           }
         </style>
-        <script>
-          const calcEl = document.querySelector('.calc');
-        </script>
       </div>
-  </section>
+   </section>
 
-  <section class="panel topic-panel" id="prefers-color-scheme">
-    <div class="detail-wrap">
-      <h2>prefers-color-scheme (media query)</h2>
-      <p class="definition">The prefers-color-scheme CSS media feature is used to detect if the user has requested a light or dark color theme. The user might indicate this preference through an operating system setting (e.g. light or dark mode) or a user agent setting. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">MDN</a>)</p>
+    <section class="panel topic-panel" id="prefers-color-scheme">
+      <div class="detail-wrap">
+        <h2>prefers-color-scheme (media query)</h2>
+        <p class="definition">The prefers-color-scheme CSS media feature is used to detect if the user has requested a light or dark color theme. The user might indicate this preference through an operating system setting (e.g. light or dark mode) or a user agent setting. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">MDN</a>)</p>
 
-      <table class="browsers">
-        <caption>browser support</caption>
-        <thead>
-          <tr>
-            <th>% all</th>
-            <th>Chrome</th>
-            <th>Edge</th>
-            <th>Firefox</th>
-            <th>Safari</th>
-            <th>Samsung</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>92%</td>
-            <td>76+</td>
-            <td>79+</td>
-            <td>67+</td>
-            <td>13+</td>
-            <td>12+</td>
-          </tr>
-        </tbody>
-      </table>
+        <table class="browsers">
+          <caption>browser support</caption>
+          <thead>
+            <tr>
+              <th>% all</th>
+              <th>Chrome</th>
+              <th>Edge</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Samsung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>92%</td>
+              <td>76+</td>
+              <td>79+</td>
+              <td>67+</td>
+              <td>13+</td>
+              <td>12+</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <div class="css-sample">
-        <h3>Sample CSS</h3>
-        <pre><code>.pcs {
+        <div class="more">
+          <h3>More...</h3>
+          <ul>
+            <li><a href="https://caniuse.com/prefers-color-scheme">prefers-color-scheme media query | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">prefers-color-scheme - CSS: Cascading Style Sheets | MDN</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="demo-wrap">
+        <div class="pcs">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus facilis atque quod quia vel culpa odio tenetur!</p>
+          <p><small>Use your browser's devtools to toggle the color schemes. Or wait until night/day changes.</small></p>
+        </div>
+
+        <div class="css-sample">
+          <h3>Sample CSS</h3>
+          <pre><code>.pcs {
   background: #fed;
   color: #333;
 }
@@ -1014,131 +1041,111 @@ li.thumbs-down::marker {
     color: #eee;
   }
 }</code></pre>
-      </div>
+        </div>
 
-      <div class="more">
-        <h3>More...</h3>
-        <ul>
-          <li><a href="https://caniuse.com/prefers-color-scheme">prefers-color-scheme media query | Can I use... Support tables for HTML5, CSS3, etc</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="demo-wrap">
-      <div class="pcs">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus facilis atque aliquid iusto blanditiis quod quia vel culpa odio tenetur! Laudantium reprehenderit cupiditate ducimus at iusto earum labore exercitationem impedit!</p>
-        <p><small>Use your browser's devtools to toggle the color schemes. Or wait until night/day changes.</small></p>
-      </div>
-
-      <style type="text/css">
-        .pcs {
-          background: #fed;
-          color: #333;
-          font-size: 1.5rem;
-          padding: 1rem;
-        }
-        .pcs:before {
-          content: '🌝';
-          display: block;
-          font-size: 4rem;
-          text-align: center;
-        }
-
-        @media (prefers-color-scheme: dark) {
+        <style type="text/css">
           .pcs {
-            background: #321;
-            color: #eee;
+            background: #fed;
+            color: #333;
+            font-size: clamp(0.9rem, 3vh, 1.5rem);
+            height: 90%;
+            overflow: scroll;
+            padding: 1rem;
           }
           .pcs:before {
-            content: '🌜';
+            content: '🌝';
+            display: block;
+            font-size: 4rem;
+            text-align: center;
           }
-        }
-      </style>
-      <script>
-        // const calcEl = document.querySelector('.calc');
-      </script>
-    </div>
-  </section>
 
-  <section class="panel topic-panel" id="clip-path">
-    <div class="detail-wrap">
-      <h2>clip-path</h2>
-      <p class="definition">The clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path">MDN</a>)</p>
+          @media (prefers-color-scheme: dark) {
+            .pcs {
+              background: #321;
+              color: #eee;
+            }
+            .pcs:before {
+              content: '🌜';
+            }
+          }
+        </style>
+      </div>
+    </section>
 
-      <table class="browsers">
-        <caption>browser support</caption>
-        <thead>
-          <tr>
-            <th>% all</th>
-            <th>Chrome</th>
-            <th>Edge</th>
-            <th>Firefox</th>
-            <th>Safari</th>
-            <th>Samsung</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>88%</td>
-            <td>88+</td>
-            <td>88+</td>
-            <td>71+</td>
-            <td>10+</td>
-            <td>15+</td>
-          </tr>
-        </tbody>
-      </table>
+    <section class="panel topic-panel" id="clip-path">
+      <div class="detail-wrap">
+        <h2>clip-path</h2>
+        <p class="definition">The clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden. (via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path">MDN</a>)</p>
 
-      <div class="css-sample">
-        <h3>Sample CSS</h3>
-        <pre><code>.clip-path {
+        <table class="browsers">
+          <caption>browser support</caption>
+          <thead>
+            <tr>
+              <th>% all</th>
+              <th>Chrome</th>
+              <th>Edge</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Samsung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>88%</td>
+              <td>88+</td>
+              <td>88+</td>
+              <td>71+</td>
+              <td>10+</td>
+              <td>15+</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="more">
+          <h3>More...</h3>
+          <ul>
+            <li><a href="https://caniuse.com/mdn-css_properties_clip-path_basic_shape">CSS property: clip-path: <code>&lt;basic-shape&gt;</code> | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path">clip-path - CSS: Cascading Style Sheets | MDN</a></li>
+            <li><a href="https://www.smashingmagazine.com/2021/09/reducing-need-pseudo-elements/#no-pseudo-element-version">Reducing The Need For Pseudo-Elements</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="demo-wrap">
+        <div class="demo-target"><div class="clipper"></div></div>
+
+        <p>Note that the clip-path is exactly the same vector path that an SVG image would use.</p>
+
+        <div class="css-sample">
+          <h3>Sample CSS</h3>
+          <pre><code>.clip-path {
   background: linear-gradient(45deg, red, lime);
   clip-path: path("M813.668.896c213.642 0 85.071 276.85 491.606 276.85 136.255 0 204.635-68.246 261.096-103.56v144.329c-31.548 0-1246.058.375-1565.448.142l.077-144.602c57.45-33.28 119.941-86.49 216.82-86.49 97.02 0 97.02 21.947 177.148 21.947 147.988 0 258.2-108.616 418.701-108.616z");
   height: 100%;
   width: 100%;
 }</code></pre>
+        </div>
+
+        <style type="text/css">
+          #clip-path .demo-target {
+            overflow: scroll;
+            width: 100%;
+          }
+          .clipper {
+            background: linear-gradient(45deg, red, lime);
+            clip-path: path("M813.668.896c213.642 0 85.071 276.85 491.606 276.85 136.255 0 204.635-68.246 261.096-103.56v144.329c-31.548 0-1246.058.375-1565.448.142l.077-144.602c57.45-33.28 119.941-86.49 216.82-86.49 97.02 0 97.02 21.947 177.148 21.947 147.988 0 258.2-108.616 418.701-108.616z");
+            height: 20rem;
+            min-width: 1000px;
+          }
+        </style>
       </div>
-
-      <div class="more">
-        <h3>More...</h3>
-        <ul>
-          <li><a href="https://caniuse.com/mdn-css_properties_clip-path_basic_shape">CSS property: clip-path: <code>&lt;basic-shape&gt;</code> | Can I use... Support tables for HTML5, CSS3, etc</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path">clip-path - CSS: Cascading Style Sheets | MDN</a></li>
-<li><a href="https://www.smashingmagazine.com/2021/09/reducing-need-pseudo-elements/#no-pseudo-element-version">Reducing The Need For Pseudo-Elements</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="demo-wrap">
-      <div class="demo-target"><div class="clipper"></div></div>
-
-      <p>Notice that the clip-path is exactly the same vector path that an SVG image would use.</p>
-
-      <style type="text/css">
-        #clip-path .demo-target {
-          overflow: scroll;
-          height: min-content;
-          width: 100%;
-        }
-        .clipper {
-          background: linear-gradient(45deg, red, lime);
-          clip-path: path("M813.668.896c213.642 0 85.071 276.85 491.606 276.85 136.255 0 204.635-68.246 261.096-103.56v144.329c-31.548 0-1246.058.375-1565.448.142l.077-144.602c57.45-33.28 119.941-86.49 216.82-86.49 97.02 0 97.02 21.947 177.148 21.947 147.988 0 258.2-108.616 418.701-108.616z");
-          height: 20rem;
-          min-width: 1000px;
-        }
-      </style>
-      <script>
-        // const calcEl = document.querySelector('.calc');
-      </script>
-    </div>
-</section>
-
+    </section>
 
     <section class="panel" id="conclusion">
-      <div class="detail-wrap">
+      <div class="content-wrap">
         <h2>Conclusion</h2>
 
-        <p>Read more about what's been happening in 2021</p>
+        <h3>Read more about what's been happening in 2021</h3>
 
         <ul>
           <li><a href="https://www.smashingmagazine.com/2021/02/things-you-can-do-with-css-today/">Things You Can Do With CSS Today</a></li>
@@ -1148,10 +1155,16 @@ li.thumbs-down::marker {
           <li><a href="https://www.proglobalbusinesssolutions.com/css-hover-effects/">Top 36 CSS Hover Effects That You Can Use in 2021</a></li>
         </ul>
 
-        <h3>Keep informed</h3>
+        <h3>Stay informed</h3>
         <ul>
+          <li><a href="https://css-weekly.com/archives/">CSS Weekly - Archives</a></li>
           <li><a href="https://css-tricks.com/">CSS-Tricks</a></li>
           <li><a href="https://www.smashingmagazine.com/category/css/">SmashingMagazine CSS</a></li>
+          <li><a href="https://moderncss.dev/">Modern CSS</a></li>
+          <li><a href="https://smolcss.dev/">SmolCSS</a></li>
+          <li><a href="https://thinkdobecreate.com/">Stephanie Eckles</a></li>
+          <li><a href="https://ishadeed.com/articles/">Ahmad Shadeed Articles</a></li>
+          <li><a href="https://www.joshwcomeau.com/tutorials/">Josh W Comeau CSS Tutorials</a></li>
         </ul>
 
         <p style="font-size:0.75rem;margin-top:3rem">&copy;2021 Steve Stedman</p>
